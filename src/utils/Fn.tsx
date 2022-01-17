@@ -1,7 +1,7 @@
-import { TransferListData, TransferListItem } from "@mantine/core";
+import { TransferListData, TransferListItem } from '@mantine/core';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import dayjs from "dayjs";
-import { Encounter } from "../models/new/Encounter";
+import dayjs from 'dayjs';
+import { Encounter } from '../models/new/Encounter';
 import {
   CheckListAnswer,
   getAccommodationType,
@@ -12,32 +12,38 @@ import {
   getMainCombustible,
   getMainElectricitySource,
   getMainWaterSource,
-} from "../models/new/Enumerations";
+} from '../models/new/Enumerations';
 import {
   Household,
   HouseholdEvaluation,
   HouseholdGraduation,
   HouseholdMember,
-} from "../models/new/Household";
-import { Obs } from "../models/new/Obs";
-import { Patient } from "../models/new/Patient";
-import { PatientIdentifier } from "../models/new/PatientIdentifier";
-import { Person } from "../models/new/Person";
+} from '../models/new/Household';
+import { Obs } from '../models/new/Obs';
+import { Patient } from '../models/new/Patient';
+import { PatientIdentifier } from '../models/new/PatientIdentifier';
+import { Person } from '../models/new/Person';
 import {
   OldHousehold,
   OldHouseholdEvaluation,
   OldHouseholdGraduation,
-} from "../models/old/Household";
-import { Member } from "../models/old/Member";
-import { MemberEvaluation } from "../models/old/MemberEvaluation";
-import { MemberSupportActivity } from "../models/old/MemberSupportActivity";
-import { NutritionalFollowupInfo } from "../models/old/NutritionalFollowup";
-import { Reference } from "../models/old/Reference";
-import { SchoolFollowupInfo } from "../models/old/SchoolFollowup";
-import { activityMapping, 
-  counterReferenceMapping, evaluationMapping, identificationMapping, nutritionalFollowupMapping, referenceMapping, schoolFollowupMapping } from "./mapping";
+} from '../models/old/Household';
+import { Member } from '../models/old/Member';
+import { MemberEvaluation } from '../models/old/MemberEvaluation';
+import { MemberSupportActivity } from '../models/old/MemberSupportActivity';
+import { NutritionalFollowupInfo } from '../models/old/NutritionalFollowup';
+import { Reference } from '../models/old/Reference';
+import { SchoolFollowupInfo } from '../models/old/SchoolFollowup';
+import {
+  activityMapping,
+  evaluationMapping,
+  identificationMapping,
+  nutritionalFollowupMapping,
+  referenceMapping,
+  schoolFollowupMapping,
+} from './mapping';
 
-dayjs.extend(customParseFormat)
+dayjs.extend(customParseFormat);
 
 const getName = (
   id: number | undefined,
@@ -57,8 +63,8 @@ const createTransferListData = (
   const listItem: TransferListItem[] = data.map((d: any) => {
     return {
       value: d[value],
-      image: "000".slice(d[image]?.toString().length) + d[image],
-      label: labelTxt + " " + d[label],
+      image: '000'.slice(d[image]?.toString().length) + d[image],
+      label: labelTxt + ' ' + d[label],
       description: d[description],
     };
   });
@@ -72,7 +78,7 @@ const getLocation = (
 ) => {
   return (
     (isSocialCenter ? socialCenterCode : structureId) +
-    "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+    'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
       (isSocialCenter ? socialCenterCode : structureId)?.toString().length
     )
   );
@@ -83,8 +89,8 @@ const getIsSocialCenter = (
   structures: TransferListItem[]
 ): boolean => {
   return (
-    getName(structure, structures)[0].value.includes("CS ") ||
-    getName(structure, structures)[0].value.includes("CENTRE SOCIAL")
+    getName(structure, structures)[0].value.includes('CS ') ||
+    getName(structure, structures)[0].value.includes('CENTRE SOCIAL')
   );
 };
 
@@ -98,15 +104,15 @@ const transformCharacteristic = (
     householdSize: old.member_number ? parseInt(old.member_number) : undefined,
     registrationDate: dayjs(
       old.identification_date_month +
-        "-" +
+        '-' +
         old.identification_date_day +
-        "-" +
+        '-' +
         old.identification_date_year,
-      "MM-DD-YYYY"
+      'MM-DD-YYYY'
     ).toDate(),
     location:
       (isSocialCenter ? old.social_center_code : old.structure) +
-      "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+      'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
         (isSocialCenter ? old.social_center_code : old.structure)?.toString()
           .length
       ),
@@ -122,10 +128,10 @@ const transformCharacteristic = (
     numberOfRoom: old.room_number ? parseInt(old.room_number) : undefined,
     housingSituation: getHouseSituation(old.house_situation),
     otherHousingSituation: old.other_housing_type,
-    hasWaterCloset: old.commodity?.includes("A"),
-    hasLatrine: old.commodity?.includes("B"),
-    hasBathroom: old.commodity?.includes("C"),
-    hasKitchen: old.commodity?.includes("D"),
+    hasWaterCloset: old.commodity?.includes('A'),
+    hasLatrine: old.commodity?.includes('B'),
+    hasBathroom: old.commodity?.includes('C'),
+    hasKitchen: old.commodity?.includes('D'),
     mainWaterSource: getMainWaterSource(old.main_water_source),
     otherMainWaterSource: old.other_main_water_source,
     mainElectricitySource: getMainElectricitySource(
@@ -134,15 +140,15 @@ const transformCharacteristic = (
     otherMainElectricitySource: old.other_main_electricity_source,
     mainCombustible: getMainCombustible(old.main_combustible),
     otherMainCombustible: old.other_main_combustible,
-    hasTelephone: old.other_household_resource?.includes("A"),
-    hasTelevision: old.other_household_resource?.includes("B"),
-    hasRadio: old.other_household_resource?.includes("C"),
-    hasRefrigerator: old.other_household_resource?.includes("D"),
+    hasTelephone: old.other_household_resource?.includes('A'),
+    hasTelevision: old.other_household_resource?.includes('B'),
+    hasRadio: old.other_household_resource?.includes('C'),
+    hasRefrigerator: old.other_household_resource?.includes('D'),
     hasSocialCapital: false,
     socialCapital: old.social_capital,
-    incomeFromProfessionalActivity: old.main_incoming_source?.includes("A"),
-    incomeFromFamilySupport: old.main_incoming_source?.includes("B"),
-    incomeFromExternalSupport: old.main_incoming_source?.includes("C"),
+    incomeFromProfessionalActivity: old.main_incoming_source?.includes('A'),
+    incomeFromFamilySupport: old.main_incoming_source?.includes('B'),
+    incomeFromExternalSupport: old.main_incoming_source?.includes('C'),
     otherIncomeSource: old.other_incoming_source,
     estimatedMonthlyIncome: getEstimatedMonthlyIncome(
       old.estimated_monthly_income
@@ -152,15 +158,15 @@ const transformCharacteristic = (
       : undefined,
     socialCenter:
       old.social_center_code +
-      "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+      'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
         old.social_center_code?.toString().length
       ),
     householdClassification: getHouseClassification(old.classification),
     householdBecoming: undefined,
     householdBecomingDate: undefined,
-    otherHouseholdBecoming: "",
-    transferDestination: "",
-    uuid: old.household_code + "HHHHHHHHHHHHHHHHHHHHHHHH",
+    otherHouseholdBecoming: '',
+    transferDestination: '',
+    uuid: old.household_code + 'HHHHHHHHHHHHHHHHHHHHHHHH',
   };
 };
 
@@ -168,7 +174,7 @@ const transformHouseholds = (
   oldHouseholds: OldHousehold[],
   structures: TransferListItem[]
 ) => {
-  console.log("In console", oldHouseholds);
+  console.log('In console', oldHouseholds);
   const households: Household[] = [];
   // const members: HouseholdMember[] = [];
   // const patients: Patient[] = [];
@@ -176,18 +182,18 @@ const transformHouseholds = (
 
   oldHouseholds.forEach((h) => {
     const isSocialCenter =
-      getName(h?.structure, structures)[0].value.includes("CS ") ||
-      getName(h?.structure, structures)[0].value.includes("CENTRE SOCIAL");
+      getName(h?.structure, structures)[0].value.includes('CS ') ||
+      getName(h?.structure, structures)[0].value.includes('CENTRE SOCIAL');
 
     households.push({
       geographicalLocation:
         h.neighborhood +
-        "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ".slice(
+        'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ'.slice(
           h.neighborhood?.toString().length
         ),
       location:
         (isSocialCenter ? h.social_center_code : h.structure) +
-        "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+        'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
           (isSocialCenter ? h.social_center_code : h.structure)?.toString()
             .length
         ),
@@ -196,42 +202,42 @@ const transformHouseholds = (
           identifier: h.household_code,
           identifierLocation:
             h.structure +
-            "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+            'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
               h.structure?.toString().length
             ),
-          uuid: h.household_code + "IIIIIIIIIIIIIIIIIIIIIIII",
+          uuid: h.household_code + 'IIIIIIIIIIIIIIIIIIIIIIII',
         },
       ],
       characteristics: [transformCharacteristic(h, structures)],
       socialCenter:
         h.social_center_code +
-        "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+        'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
           h.social_center_code?.toString().length
         ),
       addresses: [
         {
           startDate: dayjs(
             h.identification_date_month +
-              "-" +
+              '-' +
               h.identification_date_day +
-              "-" +
+              '-' +
               h.identification_date_year,
-            "MM-DD-YYYY"
+            'MM-DD-YYYY'
           ).toDate(),
           geographicalLocation:
             h.neighborhood +
-            "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ".slice(
+            'QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ'.slice(
               h.neighborhood?.toString().length
             ),
           address: {
             address1: h.block,
             address2: h.batch,
             address3: h.reference,
-            uuid: h.household_code + "AAAAAAAAAAAAAAAAAAAAAAAA",
+            uuid: h.household_code + 'AAAAAAAAAAAAAAAAAAAAAAAA',
           },
         },
       ],
-      uuid: h.household_code + "HHHHHHHHHHHHHHHHHHHHHHHH",
+      uuid: h.household_code + 'HHHHHHHHHHHHHHHHHHHHHHHH',
     });
 
     // const {members: m, persons: pe, patients: pa} = transformMembers(h, h.household_code + "HHHHHHHHHHHHHHHHHHHHHHHH");
@@ -252,11 +258,11 @@ const transformHouseholdEvaluations = (
   return oldEvaluations.reduce(
     (evaluations: HouseholdEvaluation[], e: OldHouseholdEvaluation) => {
       const isSocialCenter =
-        getName(e?.structure, structures)[0].value.includes("CS ") ||
-        getName(e?.structure, structures)[0].value.includes("CENTRE SOCIAL");
+        getName(e?.structure, structures)[0].value.includes('CS ') ||
+        getName(e?.structure, structures)[0].value.includes('CENTRE SOCIAL');
 
       evaluations.push({
-        evaluationDate: dayjs(e.evaluation1_date, "DD/MM/YYYY").toDate(),
+        evaluationDate: dayjs(e.evaluation1_date, 'DD/MM/YYYY').toDate(),
         firstEvaluation: true,
         foodSecurityScore: e.nutritional_security1
           ? parseInt(e.nutritional_security1)
@@ -283,15 +289,15 @@ const transformHouseholdEvaluations = (
         protectionScore: e.protection_1 ? parseInt(e.protection_1) : undefined, // protection
         location:
           (isSocialCenter ? e.cs_code : e.structure) +
-          "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+          'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
             (isSocialCenter ? e.cs_code : e.structure)?.toString().length
           ),
-        uuid: e.household_code + "1EEEEEEEEEEEEEEEEEEEEE",
+        uuid: e.household_code + '1EEEEEEEEEEEEEEEEEEEEE',
       });
 
       if (e.evaluation2_date) {
         evaluations.push({
-          evaluationDate: dayjs(e.evaluation2_date, "DD/MM/YYYY").toDate(),
+          evaluationDate: dayjs(e.evaluation2_date, 'DD/MM/YYYY').toDate(),
           firstEvaluation: false,
           foodSecurityScore: e.nutritional_security_2
             ? parseInt(e.nutritional_security_2)
@@ -322,10 +328,10 @@ const transformHouseholdEvaluations = (
             : undefined, // protection
           location:
             (isSocialCenter ? e.cs_code : e.structure) +
-            "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+            'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
               (isSocialCenter ? e.cs_code : e.structure)?.toString().length
             ),
-          uuid: e.household_code + "2EEEEEEEEEEEEEEEEEEEEE",
+          uuid: e.household_code + '2EEEEEEEEEEEEEEEEEEEEE',
         });
       }
 
@@ -341,7 +347,7 @@ const transformGraduations = (
 ): HouseholdGraduation[] => {
   const householdGraduations: HouseholdGraduation[] = [];
 
-  console.log("oldGraduations", oldGraduations);
+  console.log('oldGraduations', oldGraduations);
 
   if (oldGraduations.length === 0) {
     return [];
@@ -350,101 +356,101 @@ const transformGraduations = (
   oldGraduations.forEach((g) => {
     const isSocialCenter =
       g.structure &&
-      (getName(g?.structure, structures)[0].value.includes("CS ") ||
-        getName(g?.structure, structures)[0].value.includes("CENTRE SOCIAL"));
+      (getName(g?.structure, structures)[0].value.includes('CS ') ||
+        getName(g?.structure, structures)[0].value.includes('CENTRE SOCIAL'));
 
     householdGraduations.push({
-      graduationDate: dayjs(g.date_evaluation, "DD/MM/YYYY").toDate(),
+      graduationDate: dayjs(g.date_evaluation, 'DD/MM/YYYY').toDate(),
       memberHivStatusKnown:
-        g.response_sit1 === "O"
+        g.response_sit1 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit1 === "N"
+          : g.response_sit1 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       memberViralLoadSuppressed:
-        g.response_sit_2 === "O"
+        g.response_sit_2 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_2 === "N"
+          : g.response_sit_2 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       memberHealthCareInsured:
-        g.response_sit_3 === "O"
+        g.response_sit_3 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_3 === "N"
+          : g.response_sit_3 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       childrenOverTenInAnnouncingStatus:
-        g.response_sit_4 === "O"
+        g.response_sit_4 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_4 === "N"
+          : g.response_sit_4 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       hivPatientSharedStatus:
-        g.response_sit_5 === "O"
+        g.response_sit_5 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_5 === "N"
+          : g.response_sit_5 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       householdEconomicallyStable:
-        g.response_sit_6 === "O"
+        g.response_sit_6 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_6 === "N"
+          : g.response_sit_6 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       unreportedMalnutrition:
-        g.response_sit_7 === "O"
+        g.response_sit_7 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_7 === "N"
+          : g.response_sit_7 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       homeSafeForChildren:
-        g.response_sit_8 === "O"
+        g.response_sit_8 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_8 === "N"
+          : g.response_sit_8 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       noVedanLastSixMonths:
-        g.response_sit_9 === "O"
+        g.response_sit_9 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_9 === "N"
+          : g.response_sit_9 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       appropriateServiceVedanSixIssues:
-        g.response_sit_10 === "O"
+        g.response_sit_10 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_10 === "N"
+          : g.response_sit_10 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       adultInHouseholdSinceSixMonth:
-        g.response_sit_11 === "O"
+        g.response_sit_11 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_11 === "N"
+          : g.response_sit_11 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       childrenAttendingRegularlySchool:
-        g.response_sit_12 === "O"
+        g.response_sit_12 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_12 === "N"
+          : g.response_sit_12 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       nonSchoolInApprenticeshipForSixMonth:
-        g.response_sit_13 === "O"
+        g.response_sit_13 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_13 === "N"
+          : g.response_sit_13 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       schoolFeesCovered:
-        g.response_sit_14 === "O"
+        g.response_sit_14 === 'O'
           ? CheckListAnswer.YES
-          : g.response_sit_14 === "N"
+          : g.response_sit_14 === 'N'
           ? CheckListAnswer.NO
           : CheckListAnswer.NOT_APPLICABLE,
       location:
         (isSocialCenter ? g.cs_code : g.structure) +
-        "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+        'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
           (isSocialCenter ? g.cs_code : g.structure)?.toString().length
         ),
-      uuid: g.code_household + "GGGGGGGGGGGGGGGGGGGGGG",
+      uuid: g.code_household + 'GGGGGGGGGGGGGGGGGGGGGG',
     });
   });
 
@@ -459,11 +465,11 @@ const transformMembers = (old: Member[], structures: TransferListItem[]) => {
 
   old.forEach((member: Member) => {
     const isSocialCenter =
-      getName(member?.structure, structures)[0].value.includes("CS ") ||
-      getName(member?.structure, structures)[0].value.includes("CENTRE SOCIAL");
+      getName(member?.structure, structures)[0].value.includes('CS ') ||
+      getName(member?.structure, structures)[0].value.includes('CENTRE SOCIAL');
     members.push({
-      patient: member.member_code + "MMMMMMMMMMMMMMMMMMMMMM",
-      joiningDate: dayjs(member.identification_date, "DD/MM/YYYY").toDate(),
+      patient: member.member_code + 'MMMMMMMMMMMMMMMMMMMMMM',
+      joiningDate: dayjs(member.identification_date, 'DD/MM/YYYY').toDate(),
       householdChief: member.order_number === 1,
       careGiver: false,
       vulnerableChild: false,
@@ -471,14 +477,14 @@ const transformMembers = (old: Member[], structures: TransferListItem[]) => {
       takingCareOrderNumber: member.care_giver_code?.toString(),
       location:
         (isSocialCenter ? member.social_center_code : member.structure) +
-        "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+        'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
           (isSocialCenter
             ? member.social_center_code
             : member.structure
           )?.toString().length
         ),
       leavingDate: undefined,
-      uuid: member.member_code + "MMMMMMMMMMMMMMMMMMMMMM",
+      uuid: member.member_code + 'MMMMMMMMMMMMMMMMMMMMMM',
     });
 
     // const address: PersonAddress = {
@@ -504,29 +510,29 @@ const transformMembers = (old: Member[], structures: TransferListItem[]) => {
 
     persons.push({
       birthdate: dayjs(
-        "01-" + member.birthdate_month + "-" + member.birthdate_year,
-        "DD-MM-YYYY"
+        '01-' + member.birthdate_month + '-' + member.birthdate_year,
+        'DD-MM-YYYY'
       ).toDate(),
-      gender: member.gender === 1 ? "M" : "F",
+      gender: member.gender === 1 ? 'M' : 'F',
       names: [
         {
           givenName: member.first_name,
           familyName: member.last_name,
           preferred: true,
-          prefix: "",
-          uuid: member.member_code + "NNNNNNNNNNNNNNNNNNNNNN",
+          prefix: '',
+          uuid: member.member_code + 'NNNNNNNNNNNNNNNNNNNNNN',
         },
       ],
-      uuid: member.member_code + "MMMMMMMMMMMMMMMMMMMMMM",
+      uuid: member.member_code + 'MMMMMMMMMMMMMMMMMMMMMM',
     });
 
     const patientIdentifiers: PatientIdentifier[] = [];
     patientIdentifiers.push({
       identifier: member.member_code,
-      identifierType: "string",
+      identifierType: 'string',
       location:
         (isSocialCenter ? member.social_center_code : member.structure) +
-        "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+        'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
           (isSocialCenter
             ? member.social_center_code
             : member.structure
@@ -538,10 +544,10 @@ const transformMembers = (old: Member[], structures: TransferListItem[]) => {
     if (member.dreams_code) {
       patientIdentifiers.push({
         identifier: member.dreams_code,
-        identifierType: "string",
+        identifierType: 'string',
         location:
           (isSocialCenter ? member.social_center_code : member.structure) +
-          "SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS".slice(
+          'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.slice(
             (isSocialCenter
               ? member.social_center_code
               : member.structure
@@ -552,7 +558,7 @@ const transformMembers = (old: Member[], structures: TransferListItem[]) => {
     }
 
     patients.push({
-      person: member.member_code + "MMMMMMMMMMMMMMMMMMMMMM",
+      person: member.member_code + 'MMMMMMMMMMMMMMMMMMMMMM',
       identifiers: patientIdentifiers,
     });
   });
@@ -570,10 +576,10 @@ const transformMemberEvaluations = (
   structures: TransferListItem[]
 ) => {
   const encounters: Encounter[] = [];
-  const encounterRole = "a0b03050-c99b-11e0-9572-0800200c9a66";
+  const encounterRole = 'a0b03050-c99b-11e0-9572-0800200c9a66';
 
   oldEvaluations.forEach((e: MemberEvaluation) => {
-    const patient = e.code_beneficiary + "MMMMMMMMMMMMMMMMMMMMMM";
+    const patient = e.code_beneficiary + 'MMMMMMMMMMMMMMMMMMMMMM';
     const location = getLocation(
       getIsSocialCenter(e.structure, structures),
       e.cs_code,
@@ -581,48 +587,48 @@ const transformMemberEvaluations = (
     );
 
     encounters.push({
-      encounterDatetime: dayjs(e.evaluation_date_1, "DD/MM/YYYY").toDate(),
-      encounterType: "EVALUATIONEEEEEEEEEEEEEEEEEEEEEEEEEE",
+      encounterDatetime: dayjs(e.evaluation_date_1, 'DD/MM/YYYY').toDate(),
+      encounterType: 'EVALUATIONEEEEEEEEEEEEEEEEEEEEEEEEEE',
       patient,
       location,
       obs: createMemberEvaluationObs(e, patient, location, 1),
       encounterProviders: [
         {
-          provider: "PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+          provider: 'PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP',
           encounterRole,
           uuid:
-            e.evaluation_date_1.replaceAll("/", "") +
+            e.evaluation_date_1.replaceAll('/', '') +
             e.code_beneficiary +
-            "EEEEEEEEEEEEEE",
+            'EEEEEEEEEEEEEE',
         },
       ],
       uuid:
-        e.evaluation_date_1.replaceAll("/", "") +
+        e.evaluation_date_1.replaceAll('/', '') +
         e.code_beneficiary +
-        "EEEEEEEEEEEEEE",
+        'EEEEEEEEEEEEEE',
     });
 
     if (e.evaluation_date_2) {
       encounters.push({
-        encounterDatetime: dayjs(e.evaluation_date_2, "DD/MM/YYYY").toDate(),
-        encounterType: "EVALUATIONEEEEEEEEEEEEEEEEEEEEEEEE",
+        encounterDatetime: dayjs(e.evaluation_date_2, 'DD/MM/YYYY').toDate(),
+        encounterType: 'EVALUATIONEEEEEEEEEEEEEEEEEEEEEEEE',
         patient,
         location,
         obs: createMemberEvaluationObs(e, patient, location, 2),
         encounterProviders: [
           {
-            provider: "PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+            provider: 'PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP',
             encounterRole,
             uuid:
-              e.evaluation_date_2.replaceAll("/", "") +
+              e.evaluation_date_2.replaceAll('/', '') +
               e.code_beneficiary +
-              "EEEEEEEEEEEEEEEEEEE",
+              'EEEEEEEEEEEEEEEEEEE',
           },
         ],
         uuid:
-          e.evaluation_date_2.replaceAll("/", "") +
+          e.evaluation_date_2.replaceAll('/', '') +
           e.code_beneficiary +
-          "EEEEEEEEEEEEEE",
+          'EEEEEEEEEEEEEE',
       });
     }
   });
@@ -638,8 +644,8 @@ const createMemberEvaluationObs = (
 ): Obs[] => {
   const obsDatetime =
     rank === 1
-      ? dayjs(evaluation.evaluation_date_1, "DD/MM/YYYY").toDate()
-      : dayjs(evaluation.evaluation_date_2, "DD/MM/YYYY").toDate();
+      ? dayjs(evaluation.evaluation_date_1, 'DD/MM/YYYY').toDate()
+      : dayjs(evaluation.evaluation_date_2, 'DD/MM/YYYY').toDate();
   if (rank === 1) {
     return createObs(
       evaluationMapping,
@@ -648,23 +654,23 @@ const createMemberEvaluationObs = (
       location,
       obsDatetime,
       [
-        "nutrition_security_2",
-        "nutrition_growth_2",
-        "well_being_health_2",
-        "health_care_2",
-        "motor_development_2",
-        "performance_2",
-        "education_2",
-        "dev_educ_2",
-        "emotion_2",
-        "social_behavior_2",
-        "emotional_dev_2",
-        "gest_fin_2",
-        "auton_2",
-        "housing_2",
-        "care_2",
-        "abuse_2",
-        "legal_protection_2",
+        'nutrition_security_2',
+        'nutrition_growth_2',
+        'well_being_health_2',
+        'health_care_2',
+        'motor_development_2',
+        'performance_2',
+        'education_2',
+        'dev_educ_2',
+        'emotion_2',
+        'social_behavior_2',
+        'emotional_dev_2',
+        'gest_fin_2',
+        'auton_2',
+        'housing_2',
+        'care_2',
+        'abuse_2',
+        'legal_protection_2',
       ],
       []
     );
@@ -677,23 +683,23 @@ const createMemberEvaluationObs = (
       obsDatetime,
       [],
       [
-        "nutrition_security_2",
-        "nutrition_growth_2",
-        "well_being_health_2",
-        "health_care_2",
-        "motor_development_2",
-        "performance_2",
-        "education_2",
-        "dev_educ_2",
-        "emotion_2",
-        "social_behavior_2",
-        "emotional_dev_2",
-        "gest_fin_2",
-        "auton_2",
-        "housing_2",
-        "care_2",
-        "abuse_2",
-        "legal_protection_2",
+        'nutrition_security_2',
+        'nutrition_growth_2',
+        'well_being_health_2',
+        'health_care_2',
+        'motor_development_2',
+        'performance_2',
+        'education_2',
+        'dev_educ_2',
+        'emotion_2',
+        'social_behavior_2',
+        'emotional_dev_2',
+        'gest_fin_2',
+        'auton_2',
+        'housing_2',
+        'care_2',
+        'abuse_2',
+        'legal_protection_2',
       ]
     );
   }
@@ -704,9 +710,9 @@ const transformIdentifiers = (
   structures: TransferListItem[]
 ) => {
   const encounters: Encounter[] = [];
-  const encounterRole = "a0b03050-c99b-11e0-9572-0800200c9a66";
+  const encounterRole = 'a0b03050-c99b-11e0-9572-0800200c9a66';
   old.forEach((i) => {
-    const patient = i.member_code + "MMMMMMMMMMMMMMMMMMMMMM";
+    const patient = i.member_code + 'MMMMMMMMMMMMMMMMMMMMMM';
     const location = getLocation(
       getIsSocialCenter(i.structure, structures),
       i.social_center_code,
@@ -714,8 +720,8 @@ const transformIdentifiers = (
     );
 
     encounters.push({
-      encounterDatetime: dayjs(i.identification_date, "DD/MM/YYYY").toDate(),
-      encounterType: "IDENTIFICATIONEEEEEEEEEEEEEEEEEEEEEE",
+      encounterDatetime: dayjs(i.identification_date, 'DD/MM/YYYY').toDate(),
+      encounterType: 'IDENTIFICATIONEEEEEEEEEEEEEEEEEEEEEE',
       patient,
       location,
       obs: createObs(
@@ -723,24 +729,24 @@ const transformIdentifiers = (
         i,
         patient,
         location,
-        dayjs(i.identification_date, "DD/MM/YYYY").toDate(),
+        dayjs(i.identification_date, 'DD/MM/YYYY').toDate(),
         [],
         []
       ),
       encounterProviders: [
         {
-          provider: "PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+          provider: 'PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP',
           encounterRole,
           uuid:
-            i.identification_date.replaceAll("/", "") +
+            i.identification_date.replaceAll('/', '') +
             i.member_code +
-            "IIIIIIIIIIIIII",
+            'IIIIIIIIIIIIII',
         },
       ],
       uuid:
-        i.identification_date.replaceAll("/", "") +
+        i.identification_date.replaceAll('/', '') +
         i.member_code +
-        "IIIIIIIIIIIIII",
+        'IIIIIIIIIIIIII',
     });
   });
 
@@ -752,19 +758,19 @@ const transformSupportActivity = (
   structures: TransferListItem[]
 ) => {
   const encounters: Encounter[] = [];
-  const encounterRole = "a0b03050-c99b-11e0-9572-0800200c9a66";
+  const encounterRole = 'a0b03050-c99b-11e0-9572-0800200c9a66';
   old.forEach((i) => {
-    const patient = i.member + "MMMMMMMMMMMMMMMMMMMMMM";
+    const patient = i.member + 'MMMMMMMMMMMMMMMMMMMMMM';
     const location = getLocation(
       getIsSocialCenter(i.structure, structures),
       i.cs_code,
       i.structure
     );
-    const encounterDatetime = dayjs(i.date_created, "DD/MM/YYYY").toDate()
+    const encounterDatetime = dayjs(i.date_created, 'DD/MM/YYYY').toDate();
 
     encounters.push({
       encounterDatetime,
-      encounterType: "SOUTIENEEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+      encounterType: 'SOUTIENEEEEEEEEEEEEEEEEEEEEEEEEEEEEE',
       patient,
       location,
       obs: createObs(
@@ -778,18 +784,13 @@ const transformSupportActivity = (
       ),
       encounterProviders: [
         {
-          provider: "PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+          provider: 'PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP',
           encounterRole,
           uuid:
-            i.date_created.replaceAll("/", "") +
-            i.member +
-            "SSSSSSSSSSSSSS",
+            i.date_created.replaceAll('/', '') + i.member + 'SSSSSSSSSSSSSS',
         },
       ],
-      uuid:
-        i.date_created.replaceAll("/", "") +
-        i.member +
-        "SSSSSSSSSSSSSS",
+      uuid: i.date_created.replaceAll('/', '') + i.member + 'SSSSSSSSSSSSSS',
     });
   });
 
@@ -801,9 +802,9 @@ const transformSchoolFollowups = (
   structures: TransferListItem[]
 ) => {
   const encounters: Encounter[] = [];
-  const encounterRole = "a0b03050-c99b-11e0-9572-0800200c9a66";
+  const encounterRole = 'a0b03050-c99b-11e0-9572-0800200c9a66';
   old.forEach((i) => {
-    const patient = i.beneficiary_code + "MMMMMMMMMMMMMMMMMMMMMM";
+    const patient = i.beneficiary_code + 'MMMMMMMMMMMMMMMMMMMMMM';
     const location = getLocation(
       getIsSocialCenter(i?.followup.structure, structures),
       i.followup.social_center_code,
@@ -811,8 +812,8 @@ const transformSchoolFollowups = (
     );
 
     encounters.push({
-      encounterDatetime: dayjs("01/09/" + i.begin_year, "DD/MM/YYYY").toDate(),
-      encounterType: "SCOLAIREEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+      encounterDatetime: dayjs('01/09/' + i.begin_year, 'DD/MM/YYYY').toDate(),
+      encounterType: 'SCOLAIREEEEEEEEEEEEEEEEEEEEEEEEEEEEE',
       patient,
       location,
       obs: createObs(
@@ -820,26 +821,19 @@ const transformSchoolFollowups = (
         i,
         patient,
         location,
-        dayjs("01/09/" + i.begin_year, "DD/MM/YYYY").toDate(),
+        dayjs('01/09/' + i.begin_year, 'DD/MM/YYYY').toDate(),
         [],
         []
       ),
       encounterProviders: [
         {
-          provider: "PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+          provider: 'PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP',
           encounterRole,
           uuid:
-            i.begin_year +
-            i.end_year +
-            i.beneficiary_code +
-            "SCSCSCSCSCSCSC",
+            i.begin_year + i.end_year + i.beneficiary_code + 'SCSCSCSCSCSCSC',
         },
       ],
-      uuid:
-        i.begin_year +
-        i.end_year +
-        i.beneficiary_code +
-        "SCSCSCSCSCSCSC",
+      uuid: i.begin_year + i.end_year + i.beneficiary_code + 'SCSCSCSCSCSCSC',
     });
   });
 
@@ -851,22 +845,22 @@ const transformNutritionalFollowups = (
   structures: TransferListItem[]
 ) => {
   const encounters: Encounter[] = [];
-  const encounterRole = "a0b03050-c99b-11e0-9572-0800200c9a66";
+  const encounterRole = 'a0b03050-c99b-11e0-9572-0800200c9a66';
   old.forEach((i) => {
-    const patient = i.beneficiary_code + "MMMMMMMMMMMMMMMMMMMMMM";
+    const patient = i.beneficiary_code + 'MMMMMMMMMMMMMMMMMMMMMM';
     const location = getLocation(
       getIsSocialCenter(i.structure, structures),
       i.social_center_code,
       i.structure
     );
     const encounterDatetime = dayjs(
-      i.visit_date_day + "/" + i.visit_date_month + "/" + i.visit_date_year,
-      "DD/MM/YYYY"
+      i.visit_date_day + '/' + i.visit_date_month + '/' + i.visit_date_year,
+      'DD/MM/YYYY'
     ).toDate();
 
     encounters.push({
       encounterDatetime,
-      encounterType: "NUTRITIONEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+      encounterType: 'NUTRITIONEEEEEEEEEEEEEEEEEEEEEEEEEEE',
       patient,
       location,
       obs: createObs(
@@ -880,14 +874,14 @@ const transformNutritionalFollowups = (
       ),
       encounterProviders: [
         {
-          provider: "PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+          provider: 'PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP',
           encounterRole,
           uuid:
             i.visit_date_day +
             i.visit_date_month +
             i.visit_date_year +
             i.beneficiary_code +
-            "NNNNNNNNNNNNNN",
+            'NNNNNNNNNNNNNN',
         },
       ],
       uuid:
@@ -896,7 +890,7 @@ const transformNutritionalFollowups = (
         i.visit_date_year +
         i.beneficiary_code +
         i.beneficiary_code +
-        "NNNNNNNNNNNNNN",
+        'NNNNNNNNNNNNNN',
     });
   });
 
@@ -908,19 +902,19 @@ const transformReference = (
   structures: TransferListItem[]
 ) => {
   const encounters: Encounter[] = [];
-  const encounterRole = "a0b03050-c99b-11e0-9572-0800200c9a66";
+  const encounterRole = 'a0b03050-c99b-11e0-9572-0800200c9a66';
   old.forEach((i) => {
-    const patient = i.beneficiary_code + "MMMMMMMMMMMMMMMMMMMMMM";
+    const patient = i.beneficiary_code + 'MMMMMMMMMMMMMMMMMMMMMM';
     const location = getLocation(
       getIsSocialCenter(i.structure, structures),
       i.cs_code,
       i.structure
     );
-    const encounterDatetime = dayjs(i.date_reference, "DD/MM/YYYY").toDate()
+    const encounterDatetime = dayjs(i.date_reference, 'DD/MM/YYYY').toDate();
 
     encounters.push({
       encounterDatetime,
-      encounterType: "REFERENCEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+      encounterType: 'REFERENCEEEEEEEEEEEEEEEEEEEEEEEEEEEE',
       patient,
       location,
       obs: createObs(
@@ -934,18 +928,18 @@ const transformReference = (
       ),
       encounterProviders: [
         {
-          provider: "PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+          provider: 'PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP',
           encounterRole,
           uuid:
-            i.date_reference.replaceAll("/", "") +
+            i.date_reference.replaceAll('/', '') +
             i.beneficiary_code +
-            "RRRRRRRRRRRRRR",
+            'RRRRRRRRRRRRRR',
         },
       ],
       uuid:
-        i.date_reference.replaceAll("/", "") +
+        i.date_reference.replaceAll('/', '') +
         i.beneficiary_code +
-        "RRRRRRRRRRRRRR",
+        'RRRRRRRRRRRRRR',
     });
 
     if (i.counter_reference) {
@@ -953,34 +947,34 @@ const transformReference = (
       encounters.push({
         encounterDatetime: dayjs(
           cr.date_contr_reference,
-          "DD/MM/YYYY"
+          'DD/MM/YYYY'
         ).toDate(),
-        encounterType: "CONTREREFERENCEEEEEEEEEEEEEEEEEEEEEE",
+        encounterType: 'CONTREREFERENCEEEEEEEEEEEEEEEEEEEEEE',
         patient,
         location,
         obs: createObs(
-          counterReferenceMapping,
+          referenceMapping,
           i,
           patient,
           location,
-          dayjs(cr.date_contr_reference, "DD/MM/YYYY").toDate(),
+          dayjs(cr.date_contr_reference, 'DD/MM/YYYY').toDate(),
           [],
           []
         ),
         encounterProviders: [
           {
-            provider: "PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+            provider: 'PNOEVPPPPPPPPPPPPPPPPPPPPPPPPPPPP',
             encounterRole,
             uuid:
-              cr.date_contr_reference.replaceAll("/", "") +
+              cr.date_contr_reference.replaceAll('/', '') +
               i.beneficiary_code +
-              "CRCRCRCRCRCRCR",
+              'CRCRCRCRCRCRCR',
           },
         ],
         uuid:
-          cr.date_contr_reference.replaceAll("/", "") +
+          cr.date_contr_reference.replaceAll('/', '') +
           i.beneficiary_code +
-          "CRCRCRCRCRCRCR",
+          'CRCRCRCRCRCRCR',
       });
     }
   });
@@ -1005,12 +999,12 @@ const createObs = (
       selected.length > 0 &&
       selected.includes(key)
     ) {
-      if (mapping[key].type === "group") {
+      if (mapping[key].type === 'group') {
         obs.push({
           person,
           concept: mapping[key].concept,
           obsDatetime,
-          groupMembers: (value as string).split(" ").map((v) => {
+          groupMembers: (value as string).split(' ').map((v) => {
             return {
               person,
               concept: mapping[key].options[v],
@@ -1019,26 +1013,42 @@ const createObs = (
             };
           }),
         });
-      } else if (mapping[key].type === "coded") {
+      } else if (mapping[key].type === 'coded') {
         obs.push({
           person,
           concept: mapping[key].concept,
           value: mapping[key].options[value as string],
           obsDatetime,
         });
-      } else if (mapping[key].type === "date") {
+      } else if (mapping[key].type === 'date') {
         obs.push({
           person,
           concept: mapping[key].concept,
-          value: dayjs(value as string, "DD/MM/YYYY").toDate(),
+          value: dayjs(value as string, 'DD/MM/YYYY').toDate(),
           obsDatetime,
         });
-      } else if (mapping[key].type === "boolean") {
+      } else if (mapping[key].type === 'boolean') {
         obs.push({
           person,
           concept: mapping[key].concept,
-          value: value === "O" || value === 1,
+          value: value === 'O' || value === 1,
           obsDatetime,
+        });
+      } else if (mapping[key].type === 'value') {
+        obs.push({
+          person,
+          concept: mapping[key].concept,
+          value: mapping[key].options[value as string].concept,
+          obsDatetime,
+        });
+      } else if (mapping[key].type === undefined) {
+        (value as string).split(' ').forEach((v) => {
+          obs.push({
+            person,
+            concept: mapping[key].options[v].concept,
+            value: true,
+            obsDatetime,
+          });
         });
       } else {
         obs.push({
@@ -1065,5 +1075,5 @@ export const Fn = {
   transformSchoolFollowups,
   transformSupportActivity,
   transformNutritionalFollowups,
-  transformReference
+  transformReference,
 };

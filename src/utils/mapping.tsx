@@ -1,197 +1,1055 @@
 export const identificationMapping = {
-
-}
+  handicap: {
+    concept: undefined,
+    type: undefined,
+    options: {
+      A: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA254', type: 'Boolean' },
+      B: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA255', type: 'Boolean' },
+      C: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA256', type: 'Boolean' },
+      D: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA257', type: 'Boolean' },
+      E: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA258', type: 'Boolean' },
+      F: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA320', type: 'Boolean' },
+    },
+  },
+  relation_with_chief: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA266',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA267', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA269', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA270', type: 'N/A' },
+      4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA271', type: 'N/A' },
+      5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA272', type: 'N/A' },
+      6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA273', type: 'N/A' },
+      7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA274', type: 'N/A' },
+      8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA275', type: 'N/A' },
+      9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA276', type: 'N/A' },
+    },
+  },
+  birthdate_certificate: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA278',
+    type: 'coded',
+    options: {
+      1: { concept: 'd57ee217-fabe-4577-bf8f-285fb6120e21', type: 'N/A' },
+      2: { concept: '9e43bcca-66e7-4ecb-b1b6-75d2d5cc271c', type: 'N/A' },
+    },
+  },
+  birthdate_certificate_number: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA317',
+    type: 'text',
+    options: undefined,
+  },
+  school_level: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA279',
+    type: 'coded',
+    options: {
+      0: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA276', type: 'N/A' },
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA280', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA281', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA282', type: 'N/A' },
+      4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA283', type: 'N/A' },
+      5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA284', type: 'N/A' },
+    },
+  },
+  vulnerability: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA286',
+    type: 'coded',
+    options: {
+      0: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA287', type: 'N/A' },
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA288', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA289', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA290', type: 'N/A' },
+      4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA142', type: 'N/A' },
+    },
+  },
+  vulnerability_type: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA291',
+    type: 'coded',
+    options: {
+      A: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA292', type: 'Boolean' },
+      B: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA293', type: 'Boolean' },
+      C: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA294', type: 'Boolean' },
+      //D: {concept: '', type: 'Boolean'},
+      E: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA359', type: 'Boolean' },
+    },
+  },
+  other_vulnerability_type: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA295',
+    type: 'text',
+    options: undefined,
+  },
+  hiv_status: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA136',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA314', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA313', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA315', type: 'N/A' },
+    },
+  },
+  person_informed: {
+    concept: undefined,
+    type: undefined,
+    options: {
+      A: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA296', type: 'Boolean' },
+      B: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA297', type: 'Boolean' },
+      C: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA298', type: 'Boolean' },
+      D: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA299', type: 'Boolean' },
+      // E: {concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', type: 'Boolean'},
+      F: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA318', type: 'Boolean' },
+      X: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA319', type: 'Boolean' },
+    },
+  },
+  other_person: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA300',
+    type: 'text',
+    options: undefined,
+  },
+  arv_treatment_followup: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA137',
+    type: 'coded',
+    options: {
+      1: { concept: 'd57ee217-fabe-4577-bf8f-285fb6120e21', type: 'N/A' },
+      2: { concept: '9e43bcca-66e7-4ecb-b1b6-75d2d5cc271c', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA142', type: 'N/A' },
+    },
+  },
+  profession: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA285',
+    type: 'text',
+    options: undefined,
+  },
+  needs: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA348',
+    type: 'N/A',
+    options: {
+      A: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA127', type: 'Boolean' },
+      B: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA128', type: 'Boolean' },
+      C: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA129', type: 'Boolean' },
+      D: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA130', type: 'Boolean' },
+      E: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA131', type: 'Boolean' },
+      F: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA132', type: 'Boolean' },
+      G: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA133', type: 'Boolean' },
+      H: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA134', type: 'Boolean' },
+      X: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA135', type: 'Boolean' },
+    },
+  },
+  relation_with_adults: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA301',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA304', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA305', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA306', type: 'N/A' },
+      4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA307', type: 'N/A' },
+      5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA284', type: 'N/A' },
+    },
+  },
+  relation_with_children: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA302',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA304', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA305', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA306', type: 'N/A' },
+      4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA307', type: 'N/A' },
+      5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA284', type: 'N/A' },
+    },
+  },
+  relation_with_care_giver: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA303',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA304', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA305', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA306', type: 'N/A' },
+      4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA307', type: 'N/A' },
+      5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA284', type: 'N/A' },
+    },
+  },
+  becoming: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA308',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA309', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA310', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA265', type: 'N/A' },
+    },
+  },
+  other_becoming: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA311',
+    type: 'text',
+    options: undefined,
+  },
+};
 
 export const evaluationMapping = {
-    nutrition_security: {concept: '', type: 'numeric', options: undefined},
-    nutrition_growth: {concept: '', type: 'numeric', options: undefined},
-    well_being_health: {concept: '', type: 'numeric', options: undefined},
-    health_care: {concept: '', type: 'numeric', options: undefined},
-    motor_development: {concept: '', type: 'numeric', options: undefined},
-    performance: {concept: '', type: 'numeric', options: undefined},
-    education: {concept: '', type: 'numeric', options: undefined},
-    dev_educ: {concept: '', type: 'numeric', options: undefined},
-    emotion: {concept: '', type: 'numeric', options: undefined},
-    social_behavior: {concept: '', type: 'numeric', options: undefined},
-    emotional_dev: {concept: '', type: 'numeric', options: undefined},
-    gest_fin: {concept: '', type: 'numeric', options: undefined},
-    auton: {concept: '', type: 'numeric', options: undefined},
-    housing: {concept: '', type: 'numeric', options: undefined},
-    care: {concept: '', type: 'numeric', options: undefined},
-    abuse: {concept: '', type: 'numeric', options: undefined},
-    legal_protection: {concept: '', type: 'numeric', options: undefined},
-    nutrition_security_2: {concept: '', type: 'numeric', options: undefined},
-    nutrition_growth_2: {concept: '', type: 'numeric', options: undefined},
-    well_being_health_2: {concept: '', type: 'numeric', options: undefined},
-    health_care_2: {concept: '', type: 'numeric', options: undefined},
-    motor_development_2: {concept: '', type: 'numeric', options: undefined},
-    performance_2: {concept: '', type: 'numeric', options: undefined},
-    education_2: {concept: '', type: 'numeric', options: undefined},
-    dev_educ_2: {concept: '', type: 'numeric', options: undefined},
-    emotion_2: {concept: '', type: 'numeric', options: undefined},
-    social_behavior_2: {concept: '', type: 'numeric', options: undefined},
-    emotional_dev_2: {concept: '', type: 'numeric', options: undefined},
-    gest_fin_2: {concept: '', type: 'numeric', options: undefined},
-    auton_2: {concept: '', type: 'numeric', options: undefined},
-    housing_2: {concept: '', type: 'numeric', options: undefined},
-    care_2: {concept: '', type: 'numeric', options: undefined},
-    abuse_2: {concept: '', type: 'numeric', options: undefined},
-    legal_protection_2: {concept: '', type: 'numeric', options: undefined},
+  nutrition_security: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA143',
+    type: 'numeric',
+    options: undefined,
+  },
+  nutrition_growth: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA144',
+    type: 'numeric',
+    options: undefined,
+  },
+  well_being_health: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA145',
+    type: 'numeric',
+    options: undefined,
+  },
+  health_care: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA146',
+    type: 'numeric',
+    options: undefined,
+  },
+  // motor_development: {concept: '', type: 'numeric', options: undefined},
+  performance: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA147',
+    type: 'numeric',
+    options: undefined,
+  },
+  education: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA148',
+    type: 'numeric',
+    options: undefined,
+  },
+  dev_educ: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA149',
+    type: 'numeric',
+    options: undefined,
+  },
+  emotion: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA150',
+    type: 'numeric',
+    options: undefined,
+  },
+  social_behavior: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA151',
+    type: 'numeric',
+    options: undefined,
+  },
+  emotional_dev: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA152',
+    type: 'numeric',
+    options: undefined,
+  },
+  gest_fin: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA153',
+    type: 'numeric',
+    options: undefined,
+  },
+  auton: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA154',
+    type: 'numeric',
+    options: undefined,
+  },
+  housing: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA155',
+    type: 'numeric',
+    options: undefined,
+  },
+  care: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA156',
+    type: 'numeric',
+    options: undefined,
+  },
+  abuse: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA157',
+    type: 'numeric',
+    options: undefined,
+  },
+  legal_protection: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA158',
+    type: 'numeric',
+    options: undefined,
+  },
+  nutrition_security_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA143',
+    type: 'numeric',
+    options: undefined,
+  },
+  nutrition_growth_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA144',
+    type: 'numeric',
+    options: undefined,
+  },
+  well_being_health_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA145',
+    type: 'numeric',
+    options: undefined,
+  },
+  health_care_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA146',
+    type: 'numeric',
+    options: undefined,
+  },
+  // motor_development_2: {concept: '', type: 'numeric', options: undefined},
+  performance_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA147',
+    type: 'numeric',
+    options: undefined,
+  },
+  education_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA148',
+    type: 'numeric',
+    options: undefined,
+  },
+  dev_educ_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA149',
+    type: 'numeric',
+    options: undefined,
+  },
+  emotion_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA150',
+    type: 'numeric',
+    options: undefined,
+  },
+  social_behavior_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA151',
+    type: 'numeric',
+    options: undefined,
+  },
+  emotional_dev_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA151',
+    type: 'numeric',
+    options: undefined,
+  },
+  gest_fin_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA153',
+    type: 'numeric',
+    options: undefined,
+  },
+  auton_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA154',
+    type: 'numeric',
+    options: undefined,
+  },
+  housing_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA155',
+    type: 'numeric',
+    options: undefined,
+  },
+  care_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA156',
+    type: 'numeric',
+    options: undefined,
+  },
+  abuse_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA157',
+    type: 'numeric',
+    options: undefined,
+  },
+  legal_protection_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA158',
+    type: 'numeric',
+    options: undefined,
+  },
 
-    nutrition_need: {
-        concept: '', 
-        type: 'group',
-        options: {
-            A1: {concept: '', type: 'boolean'}
-        }
+  nutrition_need: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA322',
+    type: 'group',
+    options: {
+      A1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA19', type: 'boolean' },
+      A2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA20', type: 'boolean' },
+      A3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA21', type: 'boolean' },
+      A4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA22', type: 'boolean' },
+      A5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA23', type: 'boolean' },
+      A6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA24', type: 'boolean' },
+      A7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA25', type: 'boolean' },
+      A8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA26', type: 'boolean' },
+      A9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA27', type: 'boolean' },
+      A10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA28', type: 'boolean' },
+      A11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA29', type: 'boolean' },
+      A12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA30', type: 'boolean' },
+      A13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA31', type: 'boolean' },
     },
-    need_health: {
-        concept: 'group', 
-        type: 'group',
-        options: {
-            C1: {concept: '', type: 'boolean'}
-        }
+  },
+  need_health: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA324',
+    type: 'group',
+    options: {
+      B1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA32', type: 'boolean' },
+      B2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA33', type: 'boolean' },
+      B3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA34', type: 'boolean' },
+      B4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA35', type: 'boolean' },
+      B5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA36', type: 'boolean' },
+      B6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA37', type: 'boolean' },
+      B7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA38', type: 'boolean' },
+      B8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA39', type: 'boolean' },
+      B9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA40', type: 'boolean' },
+      B10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA41', type: 'boolean' },
+      B11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA42', type: 'boolean' },
+      B12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA43', type: 'boolean' },
+      B13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA44', type: 'boolean' },
+      B14: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA45', type: 'boolean' },
     },
-    need_educ: {
-        concept: 'group', 
-        type: 'group',
-        options: {
-            X1: {concept: '', type: 'boolean'}
-        }
+  },
+  need_educ: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA326',
+    type: 'group',
+    options: {
+      C1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA46', type: 'boolean' },
+      C2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA47', type: 'boolean' },
+      C3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA48', type: 'boolean' },
+      C4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA49', type: 'boolean' },
+      C5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA50', type: 'boolean' },
+      C6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA51', type: 'boolean' },
+      C7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA52', type: 'boolean' },
+      C8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA53', type: 'boolean' },
+      C9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA54', type: 'boolean' },
+      C10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA55', type: 'boolean' },
+      C11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA56', type: 'boolean' },
+      C12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA57', type: 'boolean' },
+      C13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA58', type: 'boolean' },
+      C14: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA59', type: 'boolean' },
+      C15: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA60', type: 'boolean' },
     },
-    needs_psycho: {
-        concept: 'group', 
-        type: 'group',
-        options: {
-            X1: {concept: '', type: 'boolean'}
-        }
+  },
+  needs_psycho: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA329',
+    type: 'group',
+    options: {
+      D1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA61', type: 'boolean' },
+      D2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA62', type: 'boolean' },
+      D3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA63', type: 'boolean' },
+      D4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA64', type: 'boolean' },
+      D5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA65', type: 'boolean' },
+      D6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA66', type: 'boolean' },
+      D7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA67', type: 'boolean' },
+      D8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA68', type: 'boolean' },
+      D9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA69', type: 'boolean' },
+      D10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA70', type: 'boolean' },
+      D11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA71', type: 'boolean' },
+      D12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA72', type: 'boolean' },
+      D13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA73', type: 'boolean' },
+      D14: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA74', type: 'boolean' },
+      D15: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA75', type: 'boolean' },
+      D16: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA76', type: 'boolean' },
+      D17: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA77', type: 'boolean' },
     },
-    needs_renf: {
-        concept: 'group', 
-        type: 'group',
-        options: {
-            X1: {concept: '', type: 'boolean'}
-        }
+  },
+  needs_renf: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA332',
+    type: 'group',
+    options: {
+      E1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA78', type: 'boolean' },
+      E2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA79', type: 'boolean' },
+      E3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA80', type: 'boolean' },
+      E4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA81', type: 'boolean' },
+      E5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA82', type: 'boolean' },
+      E6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA83', type: 'boolean' },
+      E7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA84', type: 'boolean' },
     },
-    needs_shelter: {
-        concept: 'group', 
-        type: 'group',
-        options: {
-            X1: {concept: '', type: 'boolean'}
-        }
+  },
+  needs_shelter: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA334',
+    type: 'group',
+    options: {
+      F1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA85', type: 'boolean' },
+      F2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA86', type: 'boolean' },
+      F3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA87', type: 'boolean' },
+      F4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA88', type: 'boolean' },
+      F5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA89', type: 'boolean' },
+      F6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA90', type: 'boolean' },
+      F7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA91', type: 'boolean' },
+      F8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA92', type: 'boolean' },
+      F9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA93', type: 'boolean' },
+      F10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA94', type: 'boolean' },
     },
-    need_protection: {
-        concept: 'group', 
-        type: 'group',
-        options: {
-            X1: {concept: '', type: 'boolean'}
-        }
+  },
+  need_protection: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA336',
+    type: 'group',
+    options: {
+      G1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA95', type: 'boolean' },
+      G2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA96', type: 'boolean' },
+      G3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA97', type: 'boolean' },
+      G4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA98', type: 'boolean' },
+      G5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA99', type: 'boolean' },
+      G6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA100', type: 'boolean' },
+      G7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA101', type: 'boolean' },
+      G8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA102', type: 'boolean' },
+      G9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA103', type: 'boolean' },
     },
-
-    information_source: {
-        concept: '', 
-        type: 'coded',
-        options: {
-            C1: {concept: '', type: 'boolean'}
-        }
+  },
+  information_source: {
+    concept: undefined,
+    type: undefined,
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA202', type: 'boolean' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA203', type: 'boolean' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA204', type: 'boolean' },
+      4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA205', type: 'boolean' },
+      5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA206', type: 'boolean' },
+      6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA207', type: 'boolean' },
+      7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA208', type: 'boolean' },
     },
-    other_information_source: {concept: '', type: 'text', options: undefined},
-    events: {concept: '', type: 'text', options: undefined},
-    other_event: {concept: '', type: 'text', options: undefined},
-    comment: {concept: '', type: 'text', options: undefined},
-    delays_realization_a: {concept: '', type: 'date', options: undefined},
-    delays_realization_b: {concept: '', type: 'date', options: undefined},
-    delays_realization_c: {concept: '', type: 'date', options: undefined},
-    delays_realization_d: {concept: '', type: 'date', options: undefined},
-    delays_realization_e: {concept: '', type: 'date', options: undefined},
-    delays_realization_f: {concept: '', type: 'date', options: undefined},
-    delays_realization_g: {concept: '', type: 'date', options: undefined},
-    follow_a: {
-        concept: '', 
-        type: 'coded',
-        options: {
-            C1: {concept: '', type: 'boolean'}
-        }
+  },
+  other_information_source: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA209',
+    type: 'text',
+    options: undefined,
+  },
+  //events: {concept: '', type: 'text', options: undefined},
+  //other_event: {concept: '', type: 'text', options: undefined},
+  //comment: {concept: '', type: 'text', options: undefined},
+  delays_realization_a: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA161',
+    type: 'date',
+    options: undefined,
+  },
+  delays_realization_b: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA163',
+    type: 'date',
+    options: undefined,
+  },
+  delays_realization_c: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA165',
+    type: 'date',
+    options: undefined,
+  },
+  delays_realization_d: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA168',
+    type: 'date',
+    options: undefined,
+  },
+  delays_realization_e: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA171',
+    type: 'date',
+    options: undefined,
+  },
+  delays_realization_f: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA173',
+    type: 'date',
+    options: undefined,
+  },
+  delays_realization_g: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA175',
+    type: 'date',
+    options: undefined,
+  },
+  follow_a: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA179',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA197', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA198', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA199', type: 'N/A' },
     },
-    follow_b: {
-        concept: '', 
-        type: 'coded',
-        options: {
-            C1: {concept: '', type: 'boolean'}
-        }
+  },
+  follow_b: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA181',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA197', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA198', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA199', type: 'N/A' },
     },
-    follow_c: {
-        concept: '', 
-        type: 'coded',
-        options: {
-            answer1: {concept: '', type: 'na'}
-        }
+  },
+  follow_c: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA184',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA197', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA198', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA199', type: 'N/A' },
     },
-    follow_d: {
-        concept: '', 
-        type: 'coded',
-        options: {
-            answer1: {concept: '', type: 'na'}
-        }
+  },
+  follow_d: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA186',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA197', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA198', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA199', type: 'N/A' },
     },
-    follow_e: {
-        concept: '', 
-        type: 'coded',
-        options: {
-            answer1: {concept: '', type: 'na'}
-        }
+  },
+  follow_e: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA189',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA197', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA198', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA199', type: 'N/A' },
     },
-    follow_f: {
-        concept: '', 
-        type: 'coded',
-        options: {
-            answer1: {concept: '', type: 'na'}
-        }
+  },
+  follow_f: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA191',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA197', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA198', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA199', type: 'N/A' },
     },
-    follow_g: {
-        concept: '', 
-        type: 'coded',
-        options: {
-            answer1: {concept: '', type: 'boolean'}
-        }
-    }
-}
+  },
+  follow_g: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA193',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA197', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA198', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA199', type: 'N/A' },
+    },
+  },
+};
 
 export const activityMapping = {
-    agent: '',
-    oev: '',
-    member: '',
-    status: '',
-    code_activity: '',
-    need: '',
-    nutritional_support: {
-        concept: '',
-        A1: ''
+  status: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA137',
+    type: 'coded',
+    options: {
+      1: { concept: 'd57ee217-fabe-4577-bf8f-285fb6120e21', type: 'N/A' },
+      2: { concept: '9e43bcca-66e7-4ecb-b1b6-75d2d5cc271c', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA142', type: 'N/A' },
     },
-    health_support: '',
-    school_support: '',
-    psycho_support: '',
-    economic_support: '',
-    shelters: '',
-    prev: '',
-    legal_support: '',
-    hiv_eligibility: '',
-    comment_treatment: '',
-    comment: '',
-}
+  },
+  need: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA348',
+    type: 'group',
+    options: {
+      A: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA127', type: 'Boolean' },
+      B: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA128', type: 'Boolean' },
+      C: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA129', type: 'Boolean' },
+      D: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA130', type: 'Boolean' },
+      E: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA131', type: 'Boolean' },
+      F: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA132', type: 'Boolean' },
+      G: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA133', type: 'Boolean' },
+      H: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA134', type: 'Boolean' },
+      X: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA135', type: 'Boolean' },
+    },
+  },
+  nutritional_support: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA340',
+    type: 'group',
+    options: {
+      A1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA19', type: 'boolean' },
+      A2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA20', type: 'boolean' },
+      A3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA21', type: 'boolean' },
+      A4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA22', type: 'boolean' },
+      A5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA23', type: 'boolean' },
+      A6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA24', type: 'boolean' },
+      A7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA25', type: 'boolean' },
+      A8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA26', type: 'boolean' },
+      A9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA27', type: 'boolean' },
+      A10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA28', type: 'boolean' },
+      A11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA29', type: 'boolean' },
+      A12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA30', type: 'boolean' },
+      A13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA31', type: 'boolean' },
+    },
+  },
+  health_support: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA341',
+    type: 'group',
+    options: {
+      B1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA32', type: 'boolean' },
+      B2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA33', type: 'boolean' },
+      B3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA34', type: 'boolean' },
+      B4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA35', type: 'boolean' },
+      B5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA36', type: 'boolean' },
+      B6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA37', type: 'boolean' },
+      B7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA38', type: 'boolean' },
+      B8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA39', type: 'boolean' },
+      B9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA40', type: 'boolean' },
+      B10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA41', type: 'boolean' },
+      B11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA42', type: 'boolean' },
+      B12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA43', type: 'boolean' },
+      B13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA44', type: 'boolean' },
+      B14: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA45', type: 'boolean' },
+    },
+  },
+  school_support: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA342',
+    type: 'group',
+    options: {
+      C1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA46', type: 'boolean' },
+      C2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA47', type: 'boolean' },
+      C3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA48', type: 'boolean' },
+      C4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA49', type: 'boolean' },
+      C5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA50', type: 'boolean' },
+      C6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA51', type: 'boolean' },
+      C7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA52', type: 'boolean' },
+      C8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA53', type: 'boolean' },
+      C9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA54', type: 'boolean' },
+      C10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA55', type: 'boolean' },
+      C11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA56', type: 'boolean' },
+      C12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA57', type: 'boolean' },
+      C13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA58', type: 'boolean' },
+      C14: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA59', type: 'boolean' },
+      C15: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA60', type: 'boolean' },
+    },
+  },
+  psycho_support: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA343',
+    type: 'group',
+    options: {
+      D1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA61', type: 'boolean' },
+      D2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA62', type: 'boolean' },
+      D3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA63', type: 'boolean' },
+      D4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA64', type: 'boolean' },
+      D5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA65', type: 'boolean' },
+      D6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA66', type: 'boolean' },
+      D7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA67', type: 'boolean' },
+      D8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA68', type: 'boolean' },
+      D9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA69', type: 'boolean' },
+      D10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA70', type: 'boolean' },
+      D11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA71', type: 'boolean' },
+      D12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA72', type: 'boolean' },
+      D13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA73', type: 'boolean' },
+      D14: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA74', type: 'boolean' },
+      D15: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA75', type: 'boolean' },
+      D16: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA76', type: 'boolean' },
+      D17: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA77', type: 'boolean' },
+    },
+  },
+  economic_support: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA344',
+    type: 'group',
+    options: {
+      E1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA78', type: 'boolean' },
+      E2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA79', type: 'boolean' },
+      E3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA80', type: 'boolean' },
+      E4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA81', type: 'boolean' },
+      E5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA82', type: 'boolean' },
+      E6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA83', type: 'boolean' },
+      E7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA84', type: 'boolean' },
+    },
+  },
+  shelters: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA345',
+    type: 'group',
+    options: {
+      F1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA85', type: 'boolean' },
+      F2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA86', type: 'boolean' },
+      F3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA87', type: 'boolean' },
+      F4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA88', type: 'boolean' },
+      F5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA89', type: 'boolean' },
+      F6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA90', type: 'boolean' },
+      F7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA91', type: 'boolean' },
+      F8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA92', type: 'boolean' },
+      F9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA93', type: 'boolean' },
+      F10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA94', type: 'boolean' },
+    },
+  },
+  prev: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA347',
+    type: 'group',
+    options: {
+      H1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA104', type: 'boolean' },
+      H2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA105', type: 'boolean' },
+      H3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA106', type: 'boolean' },
+      H4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA107', type: 'boolean' },
+      H5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA108', type: 'boolean' },
+      H6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA109', type: 'boolean' },
+      H7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA110', type: 'boolean' },
+      H8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA111', type: 'boolean' },
+      H9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA112', type: 'boolean' },
+      H10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA113', type: 'boolean' },
+      H11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA114', type: 'boolean' },
+      H12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA115', type: 'boolean' },
+      H13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA116', type: 'boolean' },
+      H14: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA117', type: 'boolean' },
+      H15: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA118', type: 'boolean' },
+      H16: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA119', type: 'boolean' },
+      H17: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA120', type: 'boolean' },
+      H18: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA121', type: 'boolean' },
+      H19: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA122', type: 'boolean' },
+    },
+  },
+  legal_support: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA346',
+    type: 'group',
+    options: {
+      G1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA95', type: 'boolean' },
+      G2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA96', type: 'boolean' },
+      G3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA97', type: 'boolean' },
+      G4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA98', type: 'boolean' },
+      G5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA99', type: 'boolean' },
+      G6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA100', type: 'boolean' },
+      G7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA101', type: 'boolean' },
+      G8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA102', type: 'boolean' },
+      G9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA103', type: 'boolean' },
+    },
+  },
+  comment_treatment: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA137',
+    type: 'coded',
+    options: {
+      1: { concept: 'd57ee217-fabe-4577-bf8f-285fb6120e21', type: 'N/A' },
+      2: { concept: '9e43bcca-66e7-4ecb-b1b6-75d2d5cc271c', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA142', type: 'N/A' },
+    },
+  },
+};
 
 export const referenceMapping = {
+  number: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA357',
+    type: 'text',
+    options: undefined,
+  },
+  hosting_structure: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA354',
+    type: 'text',
+    options: undefined,
+  },
+  hosting_service: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA355',
+    type: 'text',
+    options: undefined,
+  },
+  //service_type: {concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', type: 'text', options: undefined},
+  motif: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA356',
+    type: 'text',
+    options: undefined,
+  },
 
-}
-
-export const counterReferenceMapping = {
-
-}
+  reference_service: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA355',
+    type: 'text',
+    options: '',
+  },
+  other_service: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA658',
+    type: 'text',
+    options: '',
+  },
+  service_offered: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA358',
+    type: 'text',
+    options: undefined,
+  },
+  observation: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA221',
+    type: 'text',
+    options: '',
+  },
+};
 
 export const schoolFollowupMapping = {
-
-}
+  begin_year: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA210',
+    type: 'text',
+    options: undefined,
+  },
+  school_class: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA211',
+    type: 'value',
+    options: {
+      1: { concept: 'Petite section', type: 'text' },
+      2: { concept: 'Moyenne section', type: 'text' },
+      3: { concept: 'Grande section', type: 'text' },
+      4: { concept: 'CP1', type: 'text' },
+      5: { concept: 'CP2', type: 'text' },
+      6: { concept: 'CE1', type: 'text' },
+      7: { concept: 'CE2', type: 'text' },
+      8: { concept: 'CM1', type: 'text' },
+      9: { concept: 'CM2', type: 'text' },
+      10: { concept: '6ème', type: 'text' },
+      11: { concept: '5ème', type: 'text' },
+      12: { concept: '4ème', type: 'text' },
+      13: { concept: '3ème', type: 'text' },
+      14: { concept: '2nd', type: 'text' },
+      15: { concept: '1ère', type: 'text' },
+      16: { concept: 'Terminale', type: 'text' },
+    },
+  },
+  school: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA213',
+    type: 'text',
+    options: undefined,
+  },
+  average_1: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA214',
+    type: 'numeric',
+    options: undefined,
+  },
+  service_1: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA244',
+    type: 'group',
+    options: {
+      C1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA46', type: 'boolean' },
+      C2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA47', type: 'boolean' },
+      C3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA48', type: 'boolean' },
+      C4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA49', type: 'boolean' },
+      C5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA50', type: 'boolean' },
+      C6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA51', type: 'boolean' },
+      D7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA67', type: 'boolean' },
+      D8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA68', type: 'boolean' },
+      D9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA69', type: 'boolean' },
+      D12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA72', type: 'boolean' },
+      F10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA94', type: 'boolean' },
+    },
+  },
+  average_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA215',
+    type: 'numeric',
+    options: undefined,
+  },
+  service_2: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA245',
+    type: 'group',
+    options: {
+      C1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA46', type: 'boolean' },
+      C2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA47', type: 'boolean' },
+      C3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA48', type: 'boolean' },
+      C4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA49', type: 'boolean' },
+      C5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA50', type: 'boolean' },
+      C6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA51', type: 'boolean' },
+      D7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA67', type: 'boolean' },
+      D8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA68', type: 'boolean' },
+      D9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA69', type: 'boolean' },
+      D12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA72', type: 'boolean' },
+      F10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA94', type: 'boolean' },
+    },
+  },
+  average_3: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA216',
+    type: 'numeric',
+    options: undefined,
+  },
+  service_3: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA246',
+    type: 'group',
+    options: {
+      C1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA46', type: 'boolean' },
+      C2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA47', type: 'boolean' },
+      C3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA48', type: 'boolean' },
+      C4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA49', type: 'boolean' },
+      C5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA50', type: 'boolean' },
+      C6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA51', type: 'boolean' },
+      D7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA67', type: 'boolean' },
+      D8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA68', type: 'boolean' },
+      D9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA69', type: 'boolean' },
+      D12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA72', type: 'boolean' },
+      F10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA94', type: 'boolean' },
+    },
+  },
+  decision: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA217',
+    type: 'coded',
+    options: {
+      A: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA218', type: 'N/A' },
+      R: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA220', type: 'N/A' },
+      E: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA219', type: 'N/A' },
+    },
+  },
+  comment: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA221',
+    type: 'text',
+    options: undefined,
+  },
+};
 
 export const nutritionalFollowupMapping = {
-
-}
+  category: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA222',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA223', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA224', type: 'N/A' },
+    },
+  },
+  location: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
+    type: 'text',
+    options: undefined,
+  },
+  status: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA136',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA314', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA313', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA315', type: 'N/A' },
+    },
+  },
+  hiv_treatment: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA226',
+    type: 'coded',
+    options: {
+      1: { concept: 'd57ee217-fabe-4577-bf8f-285fb6120e21', type: 'N/A' },
+      2: { concept: '9e43bcca-66e7-4ecb-b1b6-75d2d5cc271c', type: 'N/A' },
+    },
+  },
+  weight: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA227',
+    type: 'numeric',
+    options: undefined,
+  },
+  height: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA228',
+    type: 'numeric',
+    options: undefined,
+  },
+  score: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA229',
+    type: 'text',
+    options: undefined,
+  },
+  bmi: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA230',
+    type: 'text',
+    options: undefined,
+  },
+  PB: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA231',
+    type: 'text',
+    options: undefined,
+  },
+  food: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA232',
+    type: 'coded',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA233', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA234', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA235', type: 'N/A' },
+      4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA236', type: 'N/A' },
+    },
+  },
+  edema: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA237',
+    type: 'coded',
+    options: {
+      1: { concept: 'd57ee217-fabe-4577-bf8f-285fb6120e21', type: 'N/A' },
+      2: { concept: '9e43bcca-66e7-4ecb-b1b6-75d2d5cc271c', type: 'N/A' },
+    },
+  },
+  nutritional_status: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA238',
+    type: 'text',
+    options: {
+      1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA239', type: 'N/A' },
+      2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA240', type: 'N/A' },
+      3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA241', type: 'N/A' },
+      4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA242', type: 'N/A' },
+      5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA243', type: 'N/A' },
+    },
+  },
+  action: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA340',
+    type: 'group',
+    options: {
+      A1: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA19', type: 'boolean' },
+      A2: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA20', type: 'boolean' },
+      A3: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA21', type: 'boolean' },
+      A4: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA22', type: 'boolean' },
+      A5: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA23', type: 'boolean' },
+      A6: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA24', type: 'boolean' },
+      A7: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA25', type: 'boolean' },
+      A8: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA26', type: 'boolean' },
+      A9: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA27', type: 'boolean' },
+      A10: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA28', type: 'boolean' },
+      A11: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA29', type: 'boolean' },
+      A12: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA30', type: 'boolean' },
+      A13: { concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA31', type: 'boolean' },
+    },
+  },
+  comment: {
+    concept: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA221',
+    type: 'text',
+    options: undefined,
+  },
+};

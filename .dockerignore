@@ -1,0 +1,9 @@
+node_modeuls
+build
+.idea
+.vscode
+migration-ovc.iml
+OVC_DB.session.sql
+.dockerignore
+Dockerfile
+Dockerfile.prod

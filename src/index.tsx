@@ -3,17 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {QueryClientProvider, QueryClient} from "react-query";
-import { ReactQueryDevtools } from 'react-query/devtools'
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
-const clientQuery = new QueryClient();
+const clientQuery = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: 'always',
+    },
+  },
+});
 ReactDOM.render(
-    <QueryClientProvider client={clientQuery}>
-      <React.StrictMode>
-          <App />
-          <ReactQueryDevtools/>
-      </React.StrictMode>
-    </QueryClientProvider>,
+  <QueryClientProvider client={clientQuery}>
+    <React.StrictMode>
+      <App />
+      <ReactQueryDevtools />
+    </React.StrictMode>
+  </QueryClientProvider>,
   document.getElementById('root')
 );
 

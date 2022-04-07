@@ -1,78 +1,78 @@
 export enum EntryPoint {
-  CDV,
-  PTME,
-  CDIP,
-  ASSOC_PVVIH,
-  CS,
-  CAT_CDT,
-  OTHER,
+  CDV = 'CDV',
+  PTME = 'PTME',
+  CDIP = 'CDIP',
+  ASSOC_PVVIH = 'ASSOC_PVVIH',
+  CS = 'CS',
+  CAT_CDT = 'CAT_CDT',
+  OTHER = 'OTHER',
 }
 
 export enum AccommodationType {
-  VILLA,
-  FLAT,
-  STRIP_HOUSE,
-  COMMON_COURTYARD,
-  HUT,
-  OTHER,
+  VILLA = 'VILLA',
+  FLAT = 'FLAT',
+  STRIP_HOUSE = 'STRIP_HOUSE',
+  COMMON_COURTYARD = 'COMMON_COURTYARD',
+  HUT = 'HUT',
+  OTHER = 'OTHER',
 }
 
 export enum HousingSituation {
-  OWNER,
-  TENANT,
-  FAMILY_HOME,
-  OTHER,
+  OWNER = 'OWNER',
+  TENANT = 'TENANT',
+  FAMILY_HOME = 'FAMILY_HOME',
+  OTHER = 'OTHER',
 }
 
 export enum MainWaterSource {
-  RUNNING_WATER,
-  HYDRAULIC_WATER_OR_DRILLING,
-  WELL,
-  SPRING_WATER,
-  OTHER,
+  RUNNING_WATER = 'RUNNING_WATER',
+  HYDRAULIC_WATER_OR_DRILLING = 'HYDRAULIC_WATER_OR_DRILLING',
+  WELL = 'WELL',
+  SPRING_WATER = 'SPRING_WATER',
+  OTHER = 'OTHER',
 }
 
 export enum MainElectricitySource {
-  ELECTRICITY,
-  STORM_LAMP,
-  NOTHING,
-  OTHER,
+  ELECTRICITY = 'ELECTRICITY',
+  STORM_LAMP = 'STORM_LAMP',
+  NOTHING = 'NOTHING',
+  OTHER = 'OTHER',
 }
 
 export enum MainCombustible {
-  GAZ,
-  CHARCOAL,
-  WOOD,
-  OTHER,
+  GAZ = 'GAZ',
+  CHARCOAL = 'CHARCOAL',
+  WOOD = 'WOOD',
+  OTHER = 'OTHER',
 }
 
 export enum EstimatedMonthlyIncome {
-  LESS_THAN_50000,
-  FROM_50001_TO_100000,
-  FROM_100001_TO_200000,
-  FROM_200001_TO_300000,
-  FROM_300001_TO_500000,
-  MORE_THAN_500000,
+  LESS_THAN_50000 = 'LESS_THAN_50000',
+  FROM_50001_TO_100000 = 'FROM_50000_TO_100000',
+  FROM_100001_TO_200000 = 'FROM_100001_TO_200000',
+  FROM_200001_TO_300000 = 'FROM_200001_TO_300000',
+  FROM_300001_TO_500000 = 'FROM_300001_TO_500000',
+  MORE_THAN_500000 = 'MORE_THAN_500000',
 }
 
 export enum HouseholdClassification {
-  EXTREMELY_VULNERABLE,
-  HIGHLY_VULNERABLE,
-  VULNERABLE,
-  NOT_VULNERABLE,
+  EXTREMELY_VULNERABLE = 'EXTREMELY_VULNERABLE',
+  HIGHLY_VULNERABLE = 'HIGHLY_VULNERABLE',
+  VULNERABLE = 'VULNERABLE',
+  NOT_VULNERABLE = 'NOT_VULNERABLE',
 }
 
 export enum HouseholdBecoming {
-  RELOCATED,
-  TRANSFERRED,
-  GRADUATED,
-  OTHER,
+  RELOCATED = 'RELOCATED',
+  TRANSFERRED = 'TRANSFERRED',
+  GRADUATED = 'GRADUATED',
+  OTHER = 'OTHER',
 }
 
 export enum CheckListAnswer {
-  YES,
-  NO,
-  NOT_APPLICABLE,
+  YES = 'YES',
+  NO = 'NO',
+  NOT_APPLICABLE = 'NOT_APPLICABLE',
 }
 
 export const getEntryPoint = (value: string | undefined) => {
@@ -235,7 +235,7 @@ export const getEstimatedMonthlyIncome = (
   value: string | undefined
 ): EstimatedMonthlyIncome | undefined => {
   let estimatedMonthlyIncome: EstimatedMonthlyIncome | undefined;
-  if (value){
+  if (value) {
     switch (parseInt(value)) {
       case 1:
         estimatedMonthlyIncome = EstimatedMonthlyIncome.LESS_THAN_50000;

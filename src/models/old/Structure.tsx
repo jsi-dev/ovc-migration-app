@@ -1,6 +1,6 @@
 export interface OldStructure {
   id?: number;
-  structureShortName?: string;
+  structureShortName: string;
   structureName?: string;
   manager?: string;
   statusStructure?: string;

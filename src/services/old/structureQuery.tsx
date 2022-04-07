@@ -1,5 +1,5 @@
-import { OldStructure } from "../../models/old/Structure";
-import { apiClient } from "../../utils/http-common";
+import { OldStructure } from '../../models/old/Structure';
+import { apiClient } from '../../utils/http-common';
 
 const findOne = async (id: number) => {
   const response = await apiClient.get<any>(`/structure/${id}`);
@@ -7,7 +7,7 @@ const findOne = async (id: number) => {
 };
 
 const findAll = async () => {
-  const response = await apiClient.get<OldStructure[]>("/structure?limit=10");
+  const response = await apiClient.get<OldStructure[]>('/structure?limit=500');
   return response.data;
 };
 

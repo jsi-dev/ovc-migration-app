@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from 'react';
 import {
   Grid,
   Group,
@@ -10,120 +10,155 @@ import {
   Button,
   TransferListItem,
   Badge,
-} from "@mantine/core";
-import StructureSelection from "../components/StructureSelection";
-import DataTable from "react-data-table-component";
-import { PaperPlaneIcon } from "@modulz/radix-icons";
-import MigrationState from "../components/MigrationState";
+  Drawer,
+} from '@mantine/core';
+import StructureSelection from '../components/StructureSelection';
+import DataTable from 'react-data-table-component';
+import { PaperPlaneIcon } from '@modulz/radix-icons';
+import MigrationState from '../components/MigrationState';
+import ConnexionForm from '../components/ConnexionForm';
+import { useHouseholdStructureMigrated } from '../hooks/useHouseholdStructureMigrated';
+import 'react-data-table-component-extensions/dist/index.css';
 
 const Migration = () => {
+  const userInfo = localStorage.getItem('userInfo');
+  const [connected, setConnected] = useState<boolean>(
+    userInfo !== null ? JSON.parse(userInfo).authenticated : false
+  );
   const theme = useMantineTheme();
   const [selectedStructures, setSelectedStructures] = useState<
     TransferListItem[]
   >([]);
+  const [opened, setOpened] = useState<boolean>(false);
   const [startedMigration, setStartedMigration] = useState(false);
-  const [count, setCount] = useState(0);
-  const [migrationReady, setMigrationReady] = useState(false)
+  const [migrationReady, setMigrationReady] = useState(false);
+  const [structureSelected, setStructureSelected] = useState(false);
 
   const toggleStartMigration = () => {
     setStartedMigration(!startedMigration);
   };
 
-  // const migrate = () => {
-  //   selectedStructures.forEach((structure) => {
-  //     setCurrentStructure(structure);
-  //     setCount(count + 1);
-  //   });
-  // };
+  const { migratedStructures, refetch } =
+    useHouseholdStructureMigrated(connected);
+
+  useEffect(() => {
+    if (connected) {
+      refetch();
+    }
+  }, [connected, refetch]);
 
   const handleSelectedStructure = (data: any) => {
-    // console.log('Data in migration', data);
     setSelectedStructures(data);
-    const ids: number[] = data.map((d: any) => {
-      return parseInt(d.description);
-    });
-    console.log("ids", ids);
+    setStructureSelected(data.length !== 0);
     setStartedMigration(false);
-    // console.log('Data in migration selectedStructures', selectedStructures);
+  };
+
+  const handleCancelMigration = () => {
+    setSelectedStructures([]);
+    setStructureSelected(false);
+    setMigrationReady(false);
+    setStartedMigration(false);
+    refetch();
   };
 
   return (
-    <Grid columns={9}>
-      <Col span={5}>
-        <Card shadow="xs" padding="md">
-          <Group position="apart" style={{ marginBottom: 10 }}>
-            <Text
-              transform="uppercase"
-              color={theme.colors.blue[8]}
-              weight={500}
-            >
-              Selection des structures
-            </Text>
-          </Group>
-          <Divider style={{ marginBottom: 5 }} />
-          <StructureSelection
-            handleSelected={(data) => handleSelectedStructure(data)}
-          />
-          <Divider my={"sm"} />
-          {/* {JSON.stringify(selectedStructures)} <br /> */}
-
-          <Group position="apart">
-            <Button
-              style={{ marginTop: 10, marginBottom: 10 }}
-              onClick={toggleStartMigration}
-              leftIcon={<PaperPlaneIcon />}
-            >
-              Terminer la sélection
-            </Button>
-            {selectedStructures.length > 0 && (
-              <Badge size="xl" color={"green"}>
-                {count} / {selectedStructures.length}
-              </Badge>
+    <>
+      <Drawer
+        opened={opened}
+        onClose={() => setOpened(false)}
+        title='Connection Nouvelle instance'
+        padding='xl'
+        size='md'>
+        <ConnexionForm setConnected={setConnected} />
+      </Drawer>
+      <Grid columns={9}>
+        <Col span={5}>
+          <Card shadow='xs' padding='md'>
+            <Group position='apart' style={{ marginBottom: 10 }}>
+              <Text
+                transform='uppercase'
+                color={theme.colors.blue[8]}
+                weight={500}>
+                {!migrationReady
+                  ? 'Sélection des structures'
+                  : 'Migration des données'}
+              </Text>
+              {!connected ? (
+                <Button size='xs' onClick={() => setOpened(true)}>
+                  Connexion
+                </Button>
+              ) : (
+                <Badge size={'xl'} color={'green'}>
+                  Connecté
+                </Badge>
+              )}
+            </Group>
+            <Divider my={'md'} />
+            {!migrationReady && (
+              <>
+                <StructureSelection
+                  handleSelected={(data) => handleSelectedStructure(data)}
+                  migratedStructures={migratedStructures}
+                />
+                <Button
+                  mt={'md'}
+                  loading={startedMigration}
+                  loaderPosition='right'
+                  disabled={!structureSelected}
+                  onClick={toggleStartMigration}
+                  leftIcon={<PaperPlaneIcon />}>
+                  Terminer la sélection
+                </Button>
+              </>
             )}
-          </Group>
 
-          {startedMigration ? (
-            <>
-              <Divider style={{ marginBottom: 5 }} />
-              <MigrationState structures={selectedStructures} migrationReady={migrationReady} />
-            </>
-          ) : null}
-        </Card>
-      </Col>
-      <Col span={4}>
-        <Card shadow="xs" padding="md">
-          <Group style={{ marginBottom: 10 }}>
-            <Text
-              transform="uppercase"
-              color={theme.colors.blue[8]}
-              weight={500}>
-              Liste des structures aux données migrées
-            </Text>
-          </Group>
-          <Divider />
-          <DataTable
-            columns={[
-              {
-                name: "Structure",
-              },
-              {
-                name: "Date de migration",
-              },
-              {
-                name: "Nombre de menages",
-              },
-              {
-                name: "Statut",
-              },
-              {
-                name: "Temps mis pour migrer",
-              },
-            ]}
-            data={[]}
-          />
-        </Card>
-      </Col>
-    </Grid>
+            {startedMigration && (
+              <MigrationState
+                structures={selectedStructures}
+                handleCancelMigration={handleCancelMigration}
+                handleMigrationReady={setMigrationReady}
+                handleStartedMigration={setStartedMigration}
+              />
+            )}
+          </Card>
+        </Col>
+        <Col span={4}>
+          <Card shadow='xs' padding='md'>
+            <Group style={{ marginBottom: 10 }}>
+              <Text
+                transform='uppercase'
+                color={theme.colors.blue[8]}
+                weight={500}>
+                Liste des structures aux données migrées
+              </Text>
+            </Group>
+            <Divider />
+            <DataTable
+              columns={[
+                {
+                  name: 'Nom',
+                  selector: (d) => (d.name ? d.name : ''),
+                },
+                {
+                  name: 'Nom complet',
+                  selector: (d) => (d.description ? d.description : ''),
+                },
+                {
+                  name: 'Code',
+                  selector: (d) => (d.postalCode ? d.postalCode : ''),
+                },
+                {
+                  name: 'Plateforme',
+                  selector: (d) =>
+                    d.parentLocation ? d.parentLocation.display : '',
+                },
+              ]}
+              data={migratedStructures}
+            />
+          </Card>
+        </Col>
+      </Grid>
+    </>
   );
 };
 
